@@ -1,0 +1,28 @@
+# Unity3D .gitignore file.
+#	 Store this file at the root of your local repository.
+*.sln
+*.userprefs
+*.csproj
+*.pidb
+*.unityproj
+.DS_Store
+Library
+obj
+Temp
+Builds
+Web/
+images/
+Assets/smcs.bak
+Assets/smcs.bak.meta
+Assets/gmcs.rsp
+Assets/gmcs.rsp.meta
+Assets/smcs.rsp
+Assets/smcs.rsp.meta
+Assets/Resources/Version/g_version.txt
+Assets/Resources/Version/g_version.txt.meta
+ProjectSettings/Physics2DSettings.asset
+ProjectSettings/EditorBuildSettings.asset
+.vsconfig
+Logs/AssetImportWorker*.log
+Logs/shadercompiler-*.log
+UserSettings/EditorUserSettings.asset
