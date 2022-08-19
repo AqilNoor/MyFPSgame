@@ -50,6 +50,10 @@ public class MoseLook : MonoBehaviour
     void Update()
     {
         LockAndUnlockCursor();
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            LookAround();
+        }
     }
 
     void LockAndUnlockCursor()
@@ -68,7 +72,23 @@ public class MoseLook : MonoBehaviour
 
         }
 
+   
+
     }
+    void LookAround()
+    {
+        currentMouseLook = new Vector2(Input.GetAxis(MouseAxis.MOUSE_Y), Input.GetAxis(MouseAxis.MOUSE_X));
+        lookAngles.x += currentMouseLook.x * senstivity * (invert ? 1f : -1f);
+        lookAngles.y = currentMouseLook.y * senstivity;
+        lookAngles.x = Mathf.Clamp(lookAngles.x, defaultLookLimit.x, defaultLookLimit.y);
+
+        currenRollAngle = Mathf.Lerp(currenRollAngle, Input.GetAxisRaw(MouseAxis.MOUSE_X) * rollAngle, Time.deltaTime * rollspeed);
+
+        lookRoot.localRotation = Quaternion.Euler(lookAngles.x, 0, 0);
+        playerRoot.localRotation = Quaternion.Euler(0, lookAngles.y, 0);
+
+    }
+
 
 
 

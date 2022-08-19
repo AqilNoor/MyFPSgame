@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     {    // Axis.HORIZONTAL and Axis.VERTICAL getting from TagHolder Script
         move_Direction = new Vector3(Input.GetAxis(Axis.HORIZONTAL), 0f, Input.GetAxis(Axis.VERTICAL));
 
-        //
+        // move the object according to the origin of object having transform
         move_Direction = transform.TransformDirection(move_Direction);
 
 
