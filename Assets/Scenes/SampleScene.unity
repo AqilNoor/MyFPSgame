@@ -240,6 +240,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRoot: {fileID: 1724022739}
   lookRoot: {fileID: 749193505}
+  invert: 0
+  canUnlock: 1
+  senstivity: 5
+  smoothSteps: 10
+  smoothWeight: 0.4
+  rollAngle: 10
+  rollspeed: 3
+  defaultLookLimit: {x: -70, y: 80}
 --- !u!1001 &802439079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -312,6 +320,18 @@ PrefabInstance:
     - target: {fileID: 2240882951740863435, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373282191876372241, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373282191876372241, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3373282191876372241, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7945901564494639135, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
       propertyPath: m_RootOrder
