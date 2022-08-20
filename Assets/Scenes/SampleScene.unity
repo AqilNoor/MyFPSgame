@@ -240,14 +240,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRoot: {fileID: 1724022739}
   lookRoot: {fileID: 749193505}
-  invert: 0
+  invert: 1
   canUnlock: 1
   senstivity: 5
   smoothSteps: 10
   smoothWeight: 0.4
-  rollAngle: 10
+  rollAngle: 0
   rollspeed: 3
   defaultLookLimit: {x: -70, y: 80}
+--- !u!114 &749193507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749193504}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d4009348073324981beedbe9133150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRoot: {fileID: 1724022739}
+  lookRoot: {fileID: 749193505}
+  rotationSpeed: 10
+  currentMouseLook: {x: 0, y: 0}
+  lookAngles: {x: 0, y: 0}
+  invert: 0
+  xLimit: {x: -70, y: 80}
 --- !u!1001 &802439079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -305,6 +324,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa7bf25b446c4baa8e0af352f470d1b, type: 3}
+--- !u!1 &1527313622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2240882951740863435, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
+  m_PrefabInstance: {fileID: 6783698709718301136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1527313625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527313622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 351f316a05c483045ba067a478ddeccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  sprintSpeed: 8
+  crouchSpeed: 2
+  moveSpeed: 5
 --- !u!4 &1724022739 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7945901564494639135, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
@@ -317,6 +357,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1271352198, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
+      propertyPath: speed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2240882951740863435, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
       propertyPath: m_Name
       value: Player
