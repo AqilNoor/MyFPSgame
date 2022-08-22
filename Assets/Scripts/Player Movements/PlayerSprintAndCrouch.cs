@@ -14,13 +14,29 @@ public class PlayerSprintAndCrouch : MonoBehaviour
     private float standHeight = 1.6f;
     private float crouchHeight = 1f;
     private bool isCrouching;
+    // for Audio 
+    private PlayerFootstepSound playerFootstepSound;
+    private float sprintVolume = 1f;
+    private float crouchVolume = 0.1f;
+    private float minWalkVolume = 0.2f;
+    private float maxWalkVolume = 0.6f;
+    private float walkStepDistance = 0.4f;
+    private float sprintStepDistance = 0.25f;
+    private float crouchStepDistance = 0.5f;
     void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        
         lookRoot = transform.GetChild(0);
+        playerFootstepSound = GetComponentInChildren<PlayerFootstepSound>();
     }
 
-    // Update is called once per frame
+    private void Start()
+    {
+        playerFootstepSound.minVolume = minWalkVolume;
+        playerFootstepSound.maxVolume = maxWalkVolume;
+        playerFootstepSound.stepDistance = walkStepDistance;
+    }
     void Update()
     {
         Sprint();
@@ -35,6 +51,10 @@ public class PlayerSprintAndCrouch : MonoBehaviour
         {
             //  change the value of speed to sprintSpeed
             playerMovement.speed = sprintSpeed;
+            playerFootstepSound.stepDistance = sprintStepDistance;
+            playerFootstepSound.minVolume = sprintVolume;
+            playerFootstepSound.maxVolume = sprintVolume;
+
         }
          // is LeftShift key is not pressed and isCrpuching is false
         if (Input.GetKeyUp(KeyCode.LeftShift) && !isCrouching)
@@ -42,6 +62,13 @@ public class PlayerSprintAndCrouch : MonoBehaviour
 
             //  change the value of speed to movetSpeed
             playerMovement.speed = moveSpeed;
+            playerFootstepSound.stepDistance = walkStepDistance;
+            playerFootstepSound.minVolume = minWalkVolume;
+            playerFootstepSound.maxVolume = maxWalkVolume;
+
+
+
+
         }
 
     } // Sprint
@@ -64,6 +91,10 @@ public class PlayerSprintAndCrouch : MonoBehaviour
                 // if we are not crouching -- Crouch
                 lookRoot.localPosition = new Vector3(0f, crouchHeight, 0f);
                 playerMovement.speed = crouchSpeed;
+                playerFootstepSound.stepDistance = crouchStepDistance;
+                playerFootstepSound.minVolume = crouchVolume;
+                playerFootstepSound.maxVolume = crouchVolume;
+
                 isCrouching = true;
             }
 
