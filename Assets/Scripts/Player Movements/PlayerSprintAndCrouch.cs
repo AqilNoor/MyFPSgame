@@ -24,12 +24,13 @@ public class PlayerSprintAndCrouch : MonoBehaviour
     void Update()
     {
         Sprint();
+        Crouch();
     }
 
     void Sprint()
     {
 
-        // is LeftShift key is pressed and isCrpuching is false
+        // if LeftShift key is pressed and isCrouching is false
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isCrouching)
         {
             //  change the value of speed to sprintSpeed
@@ -43,6 +44,46 @@ public class PlayerSprintAndCrouch : MonoBehaviour
             playerMovement.speed = moveSpeed;
         }
 
+    } // Sprint
+
+    void Crouch()
+    {
+        // check if C key is down
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (isCrouching)
+            {
+                // if we are crouching -- StandUp
+                lookRoot.localPosition = new Vector3(0f, standHeight, 0f);
+                playerMovement.speed = moveSpeed;
+                isCrouching = false;
+
+
+            }else
+            {
+                // if we are not crouching -- Crouch
+                lookRoot.localPosition = new Vector3(0f, crouchHeight, 0f);
+                playerMovement.speed = crouchSpeed;
+                isCrouching = true;
+            }
+
+
+
+
+
+
+
+        }
+
+
+
+
+
     }
+
+
+
+
+
 
 }

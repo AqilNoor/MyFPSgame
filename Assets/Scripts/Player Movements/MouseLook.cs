@@ -58,8 +58,10 @@ public class MouseLook : MonoBehaviour
 
     void LockAndUnlockCursor()
     {
+        // check if Escape key is down
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            // check if cursor lock mode is locked
             if(Cursor.lockState == CursorLockMode.Locked)
             {
                 Cursor.lockState = CursorLockMode.None;
