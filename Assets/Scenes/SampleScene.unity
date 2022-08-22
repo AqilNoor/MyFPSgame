@@ -240,7 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRoot: {fileID: 1724022739}
   lookRoot: {fileID: 749193505}
-  invert: 1
+  invert: 0
   canUnlock: 1
   senstivity: 5
   smoothSteps: 10
