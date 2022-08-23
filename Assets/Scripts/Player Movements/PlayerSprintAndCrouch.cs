@@ -51,6 +51,8 @@ public class PlayerSprintAndCrouch : MonoBehaviour
         {
             //  change the value of speed to sprintSpeed
             playerMovement.speed = sprintSpeed;
+
+            // Sound effects while sprinting
             playerFootstepSound.stepDistance = sprintStepDistance;
             playerFootstepSound.minVolume = sprintVolume;
             playerFootstepSound.maxVolume = sprintVolume;
@@ -62,6 +64,8 @@ public class PlayerSprintAndCrouch : MonoBehaviour
 
             //  change the value of speed to movetSpeed
             playerMovement.speed = moveSpeed;
+
+            // Sound effects while not sprinting
             playerFootstepSound.stepDistance = walkStepDistance;
             playerFootstepSound.minVolume = minWalkVolume;
             playerFootstepSound.maxVolume = maxWalkVolume;
@@ -83,6 +87,11 @@ public class PlayerSprintAndCrouch : MonoBehaviour
                 // if we are crouching -- StandUp
                 lookRoot.localPosition = new Vector3(0f, standHeight, 0f);
                 playerMovement.speed = moveSpeed;
+
+                // Sounde ffects when not Crouching 
+                playerFootstepSound.stepDistance = walkStepDistance;
+                playerFootstepSound.minVolume = minWalkVolume;
+                playerFootstepSound.maxVolume = maxWalkVolume;
                 isCrouching = false;
 
 
@@ -91,6 +100,8 @@ public class PlayerSprintAndCrouch : MonoBehaviour
                 // if we are not crouching -- Crouch
                 lookRoot.localPosition = new Vector3(0f, crouchHeight, 0f);
                 playerMovement.speed = crouchSpeed;
+
+                // Sound effects while crouching
                 playerFootstepSound.stepDistance = crouchStepDistance;
                 playerFootstepSound.minVolume = crouchVolume;
                 playerFootstepSound.maxVolume = crouchVolume;
@@ -98,23 +109,6 @@ public class PlayerSprintAndCrouch : MonoBehaviour
                 isCrouching = true;
             }
 
-
-
-
-
-
-
         }
-
-
-
-
-
     }
-
-
-
-
-
-
 }

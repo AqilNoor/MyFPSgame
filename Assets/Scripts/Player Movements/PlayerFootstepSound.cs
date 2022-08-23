@@ -11,7 +11,7 @@ public class PlayerFootstepSound : MonoBehaviour
     [HideInInspector]
     public float minVolume, maxVolume;
     [HideInInspector]
-    public float accumulatedDistance;
+    public float totalDistanceCovered;
     [HideInInspector]
     public float stepDistance;
 
@@ -34,21 +34,26 @@ public class PlayerFootstepSound : MonoBehaviour
 
     void CheckToPlayFootstepSound()
     {
+        // if Player is not moving
         if (!characterController.isGrounded)
             return;
+
+        // if Player is Moving
         if (characterController.velocity.sqrMagnitude > 0)
         {
-            accumulatedDistance += Time.deltaTime;
-            if (accumulatedDistance > stepDistance)
-            {
+
+            totalDistanceCovered += Time.deltaTime;
+
+            if (totalDistanceCovered > stepDistance)
+            { 
                 audioSource.volume = Random.Range(minVolume, maxVolume);
                 audioSource.clip =  footStepClip[Random.Range(0, footStepClip.Length)];
                 audioSource.Play();
-                accumulatedDistance = 0f;
+                totalDistanceCovered = 0f;
             }
         } else
         {
-            accumulatedDistance = 0f;
+            totalDistanceCovered = 0f;
         }
     }
 
