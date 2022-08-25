@@ -13,18 +13,15 @@ public class PlayerFootstepSound : MonoBehaviour
     [HideInInspector]
     public float totalDistanceCovered;
     [HideInInspector]
-    public float stepDistance;
+    public float stepDistance; // stepDistance = walkStepDistance = 0.4f
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        // CharacterController is attached with Player
         characterController = GetComponentInParent<CharacterController>();
     }
-    void Start()
-    {
-        
-    }
-
+ 
     // Update is called once per frame
     void Update()
     {
@@ -41,14 +38,17 @@ public class PlayerFootstepSound : MonoBehaviour
         // if Player is Moving
         if (characterController.velocity.sqrMagnitude > 0)
         {
-
+            // accumulate the total step-distance 
             totalDistanceCovered += Time.deltaTime;
-
+             
+             
             if (totalDistanceCovered > stepDistance)
             { 
                 audioSource.volume = Random.Range(minVolume, maxVolume);
                 audioSource.clip =  footStepClip[Random.Range(0, footStepClip.Length)];
                 audioSource.Play();
+
+                // after playing audio setting value 0 to totalDistanceCovered
                 totalDistanceCovered = 0f;
             }
         } else

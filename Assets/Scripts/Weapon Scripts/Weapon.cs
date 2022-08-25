@@ -23,7 +23,7 @@ public enum WeaponBulletType
     NONE
 }
 
-public class WeaponHandler : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     private Animator animator;
     [SerializeField]
@@ -42,12 +42,12 @@ public class WeaponHandler : MonoBehaviour
 
     public void ShootAnimation()
     {
-        animator.SetTrigger(AnimationTag.sHOOTtRIGGER);
+        animator.SetTrigger(AnimationTag.SHOOT_TRIGGER);
     }
 
     public void Aim(bool canAim)
     {
-        animator.SetBool(AnimationTag.aIMpARAMETER, canAim);
+        animator.SetBool(AnimationTag.AIM_PARAMETER, canAim);
     }
     void TurnOnMuzzleFlash()
     {

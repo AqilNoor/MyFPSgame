@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     [SerializeField]
-    private WeaponHandler[] weapons;
+    private Weapon[] weapons;
     private int currentWeaponIndex;
 
     void Start()
@@ -45,29 +45,22 @@ public class WeaponManager : MonoBehaviour
 
     void TurnOnSelectedWeapon(int weaponIndex)
     {
+        // if selected weapon is equal to current weapon, do nothing
         if (currentWeaponIndex == weaponIndex)
             return;
+
+        // Turn off current Weapon
         weapons[currentWeaponIndex].gameObject.SetActive(false);
+        // Turn on selected weapon 
         weapons[weaponIndex].gameObject.SetActive(true);
+
         currentWeaponIndex = weaponIndex;
     }
 
-    public WeaponHandler GetCurrentSelectedWeapon()
+    public Weapon GetCurrentSelectedWeapon()
     {
         return weapons[currentWeaponIndex];
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
