@@ -1061,23 +1061,19 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 417209631774958590, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2214620854755829589, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
+      propertyPath: field of view
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 2240882951740863435, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3123415359273835539, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3741306853570580453, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4220239782445719878, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446284179721055394, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
