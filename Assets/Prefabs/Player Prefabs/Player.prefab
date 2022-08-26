@@ -164,9 +164,9 @@ MonoBehaviour:
   muzzleFlash: {fileID: 0}
   shootSound: {fileID: 0}
   reloadSound: {fileID: 0}
-  weaponAim: 0
+  weaponAim: 1
   fireType: 0
-  bulletType: 0
+  bulletType: 1
   attackPoint: {fileID: 0}
 --- !u!1 &417209631774958590
 GameObject:
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 1578032517}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,9 +489,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 0}
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 8267232182190578925}
   reloadSound: {fileID: 0}
-  weaponAim: 0
+  weaponAim: 2
   fireType: 0
   bulletType: 0
   attackPoint: {fileID: 0}
@@ -700,9 +700,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 0}
-  shootSound: {fileID: 0}
-  reloadSound: {fileID: 0}
-  weaponAim: 0
+  shootSound: {fileID: 5207935110248096370}
+  reloadSound: {fileID: 8921929492550242055}
+  weaponAim: 2
   fireType: 0
   bulletType: 0
   attackPoint: {fileID: 0}
@@ -721,9 +721,9 @@ MonoBehaviour:
   muzzleFlash: {fileID: 0}
   shootSound: {fileID: 0}
   reloadSound: {fileID: 0}
-  weaponAim: 0
+  weaponAim: 1
   fireType: 0
-  bulletType: 0
+  bulletType: 2
   attackPoint: {fileID: 0}
 --- !u!82 &2324150172232980668
 AudioSource:
@@ -834,10 +834,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 0}
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 2324150172232980668}
   reloadSound: {fileID: 0}
-  weaponAim: 0
-  fireType: 0
+  weaponAim: 2
+  fireType: 1
   bulletType: 0
   attackPoint: {fileID: 0}
 --- !u!1 &4959801436515979278
@@ -985,11 +985,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 0}
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 5102962374453155577}
   reloadSound: {fileID: 0}
   weaponAim: 0
   fireType: 0
-  bulletType: 0
+  bulletType: 3
   attackPoint: {fileID: 0}
 --- !u!1 &5753317220221652714
 GameObject:
@@ -1243,7 +1243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100048, guid: 9ba50ff5806385f4da160695a7223e1d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100050, guid: 9ba50ff5806385f4da160695a7223e1d, type: 3}
       propertyPath: m_Layer
@@ -1598,7 +1598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100028, guid: 2bd6bf150a6e08645964bd2baf2a789b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100030, guid: 2bd6bf150a6e08645964bd2baf2a789b, type: 3}
       propertyPath: m_Layer
@@ -2269,7 +2269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100026, guid: 1b1e15712c094a1409abf2c70f7e2703, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100028, guid: 1b1e15712c094a1409abf2c70f7e2703, type: 3}
       propertyPath: m_Layer
@@ -4228,7 +4228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100026, guid: f01a880f7473c2546b3ff80815537299, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100028, guid: f01a880f7473c2546b3ff80815537299, type: 3}
       propertyPath: m_Layer
@@ -4535,7 +4535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100030, guid: 48d42201fa1ddd74b8df820204882ede, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100032, guid: 48d42201fa1ddd74b8df820204882ede, type: 3}
       propertyPath: m_Layer
@@ -4798,7 +4798,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100014, guid: ded3362b8b3b82243b3043bb355c770c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100014, guid: ded3362b8b3b82243b3043bb355c770c, type: 3}
       propertyPath: m_TagString

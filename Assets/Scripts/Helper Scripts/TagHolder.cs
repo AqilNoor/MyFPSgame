@@ -32,7 +32,7 @@ public class Tags
 {
     public const string lOOK_ROOT = "Look Root";
     public const string ZOOM_CAMERA = "FP Camera";
-    public const string CROSSHAIR = "CrossHair";
+    public const string CROSSHAIR = "Crosshair";
     public const string ARRAOW_TAGG = "Arrow";
     public const string AXE_TAG = "Axe";
     public const string PLAYER_TAG = "Player";

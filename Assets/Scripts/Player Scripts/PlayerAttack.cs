@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
     private bool zoomed;
     private Camera mainCamera;
     private GameObject crosshair;
+    private bool isAiming;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         WeaponShoot();
+        ZoomInAndOut();
     }
 
     void WeaponShoot()
@@ -41,9 +43,10 @@ public class PlayerAttack : MonoBehaviour
             {
                 nextTimeToShoot = Time.time + 1f / fireRate;
                 weaponManager.GetCurrentSelectedWeapon().ShootAnimation();
-                BulletFire();
+               // BulletFire();
             }
-        } else {
+        } else
+        {
             // if we have a weapon that shoots once
             if (Input.GetMouseButtonDown(0))
             {
@@ -57,9 +60,21 @@ public class PlayerAttack : MonoBehaviour
                 if (weaponManager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.BULLET)
                 {
                     weaponManager.GetCurrentSelectedWeapon().ShootAnimation();
-                    BulletFire();
+                   // BulletFire();
                 } else
                 {
+                    // if we have Bow or Spear
+                    if (isAiming)
+                    {
+                        weaponManager.GetCurrentSelectedWeapon().ShootAnimation();
+                        if(weaponManager.GetCurrentSelectedWeapon().bulletType==WeaponBulletType.ARROW)
+                        {
+                            // throw Arrow
+                        } else if (weaponManager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.SPEAR)
+                        {
+                            // thow Spear
+                        }
+                    }
 
                 }
             }
@@ -70,29 +85,39 @@ public class PlayerAttack : MonoBehaviour
 
     void ZoomInAndOut()
     {
-        
-    }
+        //we are going to aim with Camera on weapon
+        if (weaponManager.GetCurrentSelectedWeapon().weaponAim == WeaponAim.AIM)
+        {
 
-    public void BulletFire()
-    {
+            if (Input.GetMouseButtonDown(1))
+            {
 
-    }
+                zoomCameraAnimator.Play(AnimationTag.ZOOM_IN_ANIMATION);
+                crosshair.SetActive(false);
+            }
 
+            if (Input.GetMouseButtonUp(1))
+            {
+                zoomCameraAnimator.Play(AnimationTag.ZOOM_OUT_ANIMATION);
+                crosshair.SetActive(true);
+            }
+        }
+        if(weaponManager.GetCurrentSelectedWeapon().weaponAim == WeaponAim.SELFAIM)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                weaponManager.GetCurrentSelectedWeapon().Aim(true);
+                isAiming = true;
+                
+            }
+            if (Input.GetMouseButtonUp(1))
+            {
+                weaponManager.GetCurrentSelectedWeapon().Aim(false);
+                isAiming = false;
 
+            }
+        }// selfAIM
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }//ZoomInAndOut
 
 }
