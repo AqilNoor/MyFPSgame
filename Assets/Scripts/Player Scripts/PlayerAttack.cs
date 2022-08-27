@@ -22,6 +22,8 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         weaponManager = GetComponent<WeaponManager>();
+        // though script is attached with player and first we are getting its child 
+        // with Tag Look Root and then we are getting Look Root's child with tag Zoom Camera. 
         zoomCameraAnimator = transform.Find(Tags.lOOK_ROOT).transform.Find(Tags.ZOOM_CAMERA).GetComponent<Animator>();
         crosshair = GameObject.FindWithTag(Tags.CROSSHAIR);
         mainCamera = Camera.main;
@@ -78,7 +80,7 @@ public class PlayerAttack : MonoBehaviour
                             ThrowArrowSpear(true);
                         } else if (weaponManager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.SPEAR)
                         {
-                            // thow Spear
+                            // throw Spear
                             ThrowArrowSpear(false);
                         }
                     }
@@ -95,30 +97,36 @@ public class PlayerAttack : MonoBehaviour
         //we are going to aim with Camera on weapon
         if (weaponManager.GetCurrentSelectedWeapon().weaponAim == WeaponAim.AIM)
         {
-
+            //  we press and hold right button of mouse 
             if (Input.GetMouseButtonDown(1))
             {
-
-                zoomCameraAnimator.Play(AnimationTag.ZOOM_IN_ANIMATION);
+                // zooming in
+                zoomCameraAnimator.Play(AnimationStrings.ZOOM_IN_ANIMATION_STATE);
+                // Crosshair deactivating
                 crosshair.SetActive(false);
             }
-
+            // release right button of mouse
             if (Input.GetMouseButtonUp(1))
             {
-                zoomCameraAnimator.Play(AnimationTag.ZOOM_OUT_ANIMATION);
+                // Zooming Out
+                zoomCameraAnimator.Play(AnimationStrings.ZOOM_OUT_ANIMATION_STATE);
+                // activating Crosshair
                 crosshair.SetActive(true);
             }
         }
+        // for bow and spear with tag selfAim
         if(weaponManager.GetCurrentSelectedWeapon().weaponAim == WeaponAim.SELFAIM)
         {
             if (Input.GetMouseButtonDown(1))
             {
+                // activating Aim state with bool parameter
                 weaponManager.GetCurrentSelectedWeapon().Aim(true);
                 isAiming = true;
                 
             }
             if (Input.GetMouseButtonUp(1))
             {
+                // Deactivating Aim state with bool parameter
                 weaponManager.GetCurrentSelectedWeapon().Aim(false);
                 isAiming = false;
 
@@ -130,14 +138,15 @@ public class PlayerAttack : MonoBehaviour
     {
         if (throwArrow)
         {
+
             GameObject arrow = Instantiate(arrowPrefab);
             arrow.transform.position = arrowBowStartPoint.position;
-            arrow.GetComponent<ArrowSpearScript>().Launch(Camera.main);
+            arrow.GetComponent<ArrowSpearScript>().Launch(mainCamera);
         }else
         {
             GameObject spear = Instantiate(spearPrefab);
             spear.transform.position = arrowBowStartPoint.position;
-            spear.GetComponent<ArrowSpearScript>().Launch(Camera.main);
+            spear.GetComponent<ArrowSpearScript>().Launch(mainCamera);
         }
     }
     void BulletAttack()

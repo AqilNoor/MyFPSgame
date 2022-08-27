@@ -42,12 +42,12 @@ public class Weapon : MonoBehaviour
 
     public void ShootAnimation()
     {
-        animator.SetTrigger(AnimationTag.SHOOT_TRIGGER);
+        animator.SetTrigger(AnimationStrings.SHOOT_TRIGGER);
     }
 
     public void Aim(bool canAim)
     {
-        animator.SetBool(AnimationTag.AIM_PARAMETER, canAim);
+        animator.SetBool(AnimationStrings.AIM_PARAMETER, canAim);
     }
     void TurnOnMuzzleFlash()
     {

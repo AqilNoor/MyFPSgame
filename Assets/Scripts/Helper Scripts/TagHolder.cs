@@ -14,10 +14,10 @@ public class MouseAxis
     public const string MOUSE_X = "Mouse X";
 }
  
-public class AnimationTag
+public class AnimationStrings
 {
-    public const string ZOOM_IN_ANIMATION = "ZoomIn";
-    public const string ZOOM_OUT_ANIMATION = "ZoomOut";
+    public const string ZOOM_IN_ANIMATION_STATE = "ZoomIn";
+    public const string ZOOM_OUT_ANIMATION_STATE = "ZoomOut";
     public const string SHOOT_TRIGGER = "Shoot";
     public const string AIM_PARAMETER = "Aim";
     public const string WALK_PARAMETER = "Walk";

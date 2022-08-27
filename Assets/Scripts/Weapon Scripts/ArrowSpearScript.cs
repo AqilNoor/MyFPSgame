@@ -35,7 +35,7 @@ public class ArrowSpearScript : MonoBehaviour
     
     public void Launch(Camera mainCam)
     {
-        myBody.velocity = Camera.main.transform.forward * speed;
+        myBody.velocity = mainCam.transform.forward * speed;
         transform.LookAt(transform.position + myBody.velocity);
     }
 
