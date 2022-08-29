@@ -30,7 +30,4 @@ public class EnemyAnimator : MonoBehaviour
     {
         animator.SetTrigger(AnimationStrings.DEAD_TRIGGER);
     }
-
-
-
 }
