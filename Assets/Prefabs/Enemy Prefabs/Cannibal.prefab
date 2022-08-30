@@ -1391,6 +1391,8 @@ GameObject:
   - component: {fileID: 8441742384635920088}
   - component: {fileID: 8441742384635920089}
   - component: {fileID: 8441742384635920090}
+  - component: {fileID: 820335352}
+  - component: {fileID: 820335353}
   m_Layer: 0
   m_Name: Cannibal
   m_TagString: Untagged
@@ -1486,6 +1488,39 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &820335352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441742384635885644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbfa0e981746f749b4cb91effc30364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &820335353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441742384635885644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c100c796801a7f43834800b3b748424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 0.5
+  runSpeed: 4
+  chaseDistance: 7
+  attackDistance: 2.2
+  chaseAfterAttackDistance: 2
+  patrolRadiusMin: 20
+  patrolRadiusMax: 60
+  patrolForThisTime: 15
+  waitBeforeAttack: 2
 --- !u!1 &8441742384635885646
 GameObject:
   m_ObjectHideFlags: 0

@@ -216,44 +216,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &820335351 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8441742384635885644, guid: 85dabd7daf7124f48b65c3fa595cd93c, type: 3}
-  m_PrefabInstance: {fileID: 8441742383828298427}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &820335352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 820335351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfbfa0e981746f749b4cb91effc30364, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &820335353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 820335351}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c100c796801a7f43834800b3b748424, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 0.5
-  runSpeed: 4
-  chaseDistance: 7
-  attackDistance: 1.8
-  chaseAfterAttackDistance: 2
-  patrolRadiusMin: 20
-  patrolRadiusMax: 60
-  patrolForThisTime: 15
-  waitBeforeAttack: 2
 --- !u!1 &962918076
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +250,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 49, y: -35}
+  m_AnchoredPosition: {x: 1.5, y: -35}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &962918078
@@ -1145,6 +1107,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c2b0db8ccfe98e4cb039994cb08d199, type: 3}
+--- !u!1001 &8317046469851091730
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8317046468885127067, guid: d3bbac61ff3e1cc46a6e88eb19c925a6, type: 3}
+      propertyPath: m_Name
+      value: Boar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317046468885158227, guid: d3bbac61ff3e1cc46a6e88eb19c925a6, type: 3}
+      propertyPath: attackDistance
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317046468885545915, guid: d3bbac61ff3e1cc46a6e88eb19c925a6, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317046468885545915, guid: d3bbac61ff3e1cc46a6e88eb19c925a6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317046468885545915, guid: d3bbac61ff3e1cc46a6e88eb19c925a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317046468885545915, guid: d3bbac61ff3e1cc46a6e88eb19c925a6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 136
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317046468885545915, guid: d3bbac61ff3e1cc46a6e88eb19c925a6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317046468885545915, guid: d3bbac61ff3e1cc46a6e88eb19c925a6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317046468885545915, guid: d3bbac61ff3e1cc46a6e88eb19c925a6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317046468885545915, guid: d3bbac61ff3e1cc46a6e88eb19c925a6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317046468885545915, guid: d3bbac61ff3e1cc46a6e88eb19c925a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317046468885545915, guid: d3bbac61ff3e1cc46a6e88eb19c925a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317046468885545915, guid: d3bbac61ff3e1cc46a6e88eb19c925a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d3bbac61ff3e1cc46a6e88eb19c925a6, type: 3}
 --- !u!1001 &8441742383828298427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1158,15 +1181,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8441742384635782252, guid: 85dabd7daf7124f48b65c3fa595cd93c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 8441742384635782252, guid: 85dabd7daf7124f48b65c3fa595cd93c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.5
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 8441742384635782252, guid: 85dabd7daf7124f48b65c3fa595cd93c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 119.75
+      value: 136
       objectReference: {fileID: 0}
     - target: {fileID: 8441742384635782252, guid: 85dabd7daf7124f48b65c3fa595cd93c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1199,6 +1222,14 @@ PrefabInstance:
     - target: {fileID: 8441742384635885644, guid: 85dabd7daf7124f48b65c3fa595cd93c, type: 3}
       propertyPath: m_Name
       value: Cannibal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8441742384635885644, guid: 85dabd7daf7124f48b65c3fa595cd93c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8441742384635885644, guid: 85dabd7daf7124f48b65c3fa595cd93c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85dabd7daf7124f48b65c3fa595cd93c, type: 3}

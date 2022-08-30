@@ -71,24 +71,35 @@ public class EnemyController : MonoBehaviour
         navAgent.speed = walkSpeed;
         // add to the patrol timer
         patrolTimer += Time.deltaTime;
+        // patrolForThisTime means the new point from where Enemy starts patrolling
         if (patrolTimer > patrolForThisTime)
         {
+            // inside this function enemy gets new point inside the Terrain 
+            // when enemy reaches to the Boundary of the Terrain
             SetNewRandomDistance();
+
+            // at new position patrolTimer set to be zero
             patrolTimer = 0f;
         }
+        // Enemy is moving
         if (navAgent.velocity.sqrMagnitude > 0)
         {
+            // play walk animation
             enemyAnimator.Walk(true);
         }
         else
         {
+            // if not moving, stop walk animation
             enemyAnimator.Walk(false);
         }
         
         // test the distance between Player and Enemy
         if (Vector3.Distance(transform.position, target.position)<= chaseDistance)
         {
-            enemyAnimator.Walk(false);enemyState = EnemyState.CHASE;
+            // stop walk animation
+            enemyAnimator.Walk(false);
+            // chane enemy state to chase so that enemy will run
+            enemyState = EnemyState.CHASE;
             // Play Sound
         }
 
@@ -97,6 +108,7 @@ public class EnemyController : MonoBehaviour
     }
     public void Chase() 
     {
+        // Enable the Enemy to Move Again
         navAgent.isStopped = false;
         navAgent.speed = runSpeed;
         // set the player position as destination
@@ -104,26 +116,33 @@ public class EnemyController : MonoBehaviour
         navAgent.SetDestination(target.position);
         if (navAgent.velocity.sqrMagnitude > 0)
         {
+            // play run animation
             enemyAnimator.Run(true);
         }
         else
         {
+            // otherwise stop running
             enemyAnimator.Run(false);
         }
         if(Vector3.Distance(transform.position,target.position) <= attackDistance)
         {
-            // stop animation
+            // stop run and walk animation
             enemyAnimator.Run(false);
             enemyAnimator.Walk(false);
+            // change enemy state to attack
             enemyState = EnemyState.ATTACK;
             // reset the chase distance to previous
+            // if the distance between player and enemy is higher and player gonna shoot enemy
+            // enemy will notice it and will start chasing the player
+
             if(chaseDistance != currentChaseDistance)
             {
                 chaseDistance = currentChaseDistance;
             }
+                // if player run away from enemy
             else if(Vector3.Distance(transform.position, target.position) > chaseDistance)
             {
-                // stop runnig
+                // then enemy will stop runnig
                 enemyAnimator.Run(false);
                 enemyState = EnemyState.PATROL;
                 // reset the patrol timmer so that the function can calculate 
@@ -137,8 +156,35 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
-    public void Attack() { }
-    void SetNewRandomDistance() { }
+    public void Attack()
+    {
+       // before attack enemy will stop moving 
+        navAgent.velocity = Vector3.zero;
+        navAgent.isStopped = true;
+        attackTimer += Time.deltaTime;
+        if (attackTimer > waitBeforeAttack)
+        {
+            enemyAnimator.Attack();
+            // Reset attack timer otherwise enemy will attack again and again
+            attackTimer = 0f;
+            // play sound
+            if( Vector3.Distance(transform.position,target.position)> attackDistance + chaseAfterAttackDistance)
+            {
+                enemyState = EnemyState.CHASE;
+            }
+        }
+    }
+    void SetNewRandomDistance()
+    {
+        float randRadius = Random.Range(patrolRadiusMin, patrolRadiusMax);
+        Vector3 randDirection = Random.insideUnitSphere * randRadius;
+        randDirection += transform.position;
+        // to keep the Enemy onto the surface of Terrain
+        NavMeshHit navhit;
+        NavMesh.SamplePosition(randDirection, out navhit, randRadius, -1);
+        navAgent.SetDestination(navhit.position);
+
+    }
 
 
 
