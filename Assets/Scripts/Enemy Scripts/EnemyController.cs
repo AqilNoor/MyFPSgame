@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -30,6 +28,8 @@ public class EnemyController : MonoBehaviour
     public float waitBeforeAttack = 2f;
     private float attackTimer;
     private Transform target;
+    public GameObject attackPoint;
+
     private void Awake()
     {
         enemyAnimator = GetComponent<EnemyAnimator>();
@@ -63,6 +63,8 @@ public class EnemyController : MonoBehaviour
         {
             Attack();
         }
+
+
     }
      public void Patrol()
     {
@@ -187,8 +189,24 @@ public class EnemyController : MonoBehaviour
     }
 
 
+    void TurnOnAttackPoint()
+    {
+        attackPoint.SetActive(true);
+    }
 
+    void TurnOffAttackPoint()
+    {
+        if (attackPoint.activeInHierarchy)
+        {
+            attackPoint.SetActive(true);
+        }
 
+    }
+
+    public EnemyState EnemyState
+    {
+        get;set;
+    }
 
 
 
