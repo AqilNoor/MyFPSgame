@@ -17,9 +17,10 @@ public class AttackScript : MonoBehaviour
         // it detects at least on collision
         if(hits.Length > 0)
         {
-            print("We Touched;" + hits[0].gameObject.tag);
+             hits[0].gameObject.GetComponent<HealthScript>().ApplyDamage(damage);
             // deactivate that gameobject
             gameObject.SetActive(false);
         }
     }
+
 }

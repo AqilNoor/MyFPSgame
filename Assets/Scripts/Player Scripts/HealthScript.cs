@@ -38,11 +38,69 @@ public class HealthScript : MonoBehaviour
         }
         if (isCannible || isBoar)
         {
-            if(enemyController.EnemyState == EnemyState.PATROL)
+            if (enemyController.EnemyState == EnemyState.PATROL)
             {
                 enemyController.chaseDistance = 50f;
             }
         }
+        if (health <= 0f)
+        {
+            PlayerDied();
+            isDead = true;
+        }
+        
     }
-   
+
+    void PlayerDied()
+    {
+        if (isCannible)
+        {
+            GetComponent<Animator>().enabled = false;
+            GetComponent<BoxCollider>().isTrigger = false;
+            GetComponent<Rigidbody>().AddTorque(-transform.forward * 50f);
+            enemyController.enabled = false;
+            navAgent.enabled = false;
+            enemyAnimator.enabled = false;
+            // start coroutine
+            // EnemyManager spawn more enemies
+        }
+        if (isBoar)
+        {
+            navAgent.velocity = Vector3.zero;
+            navAgent.isStopped = true;
+            enemyController.enabled = false;
+            enemyAnimator.Dead();
+            // Spawn more enemies
+        }
+        if (isPlayer)
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag(Tags.ENEMY_TAG);
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].GetComponent<EnemyController>().enabled = false;
+                // call Enemy Manager to stop spawning enemies
+            }
+                GetComponent<PlayerMovement>().enabled = false;
+                GetComponent<PlayerAttack>().enabled = false;
+                GetComponent<WeaponManager>().GetCurrentSelectedWeapon().gameObject.SetActive(false);
+        }
+        if (tag == Tags.PLAYER_TAG)
+        {
+            Invoke("RestartGame", 3f);
+        }
+        else
+        {
+            Invoke("TurnOffGame", 3f);
+        }
+
+    }
+    void RestartGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("FPS Level1");
+
+    }
+    void TurnOffGame()
+    {
+        gameObject.SetActive(false);
+    }
 }
