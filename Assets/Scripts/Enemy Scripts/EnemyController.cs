@@ -29,12 +29,14 @@ public class EnemyController : MonoBehaviour
     private float attackTimer;
     private Transform target;
     public GameObject attackPoint;
+    private EnemyAudio enemyAudio;
 
     private void Awake()
     {
         enemyAnimator = GetComponent<EnemyAnimator>();
         navAgent = GetComponent<NavMeshAgent>();
         target = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
+        enemyAudio = GetComponentInChildren<EnemyAudio>();
     }
     void Start()
     {
@@ -102,7 +104,8 @@ public class EnemyController : MonoBehaviour
             enemyAnimator.Walk(false);
             // chane enemy state to chase so that enemy will run
             enemyState = EnemyState.CHASE;
-            // Play Sound
+            // Play Sound when enemy starts chasing Player
+            enemyAudio.PlayScreamSound();
         }
 
 

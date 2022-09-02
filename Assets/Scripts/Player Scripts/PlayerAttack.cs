@@ -153,7 +153,7 @@ public class PlayerAttack : MonoBehaviour
     {
         RaycastHit hit;
         Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit);
-        if(hit.transform.tag == Tags.ENEMY_TAG)
+        if(hit.transform.tag == (Tags.ENEMY_TAG))
         {
             hit.transform.GetComponent<HealthScript>().ApplyDamage(damage);
         }
