@@ -12,6 +12,7 @@ public class HealthScript : MonoBehaviour
     public bool isPlayer, isCannible, isBoar;
     private bool isDead;
     private EnemyAudio enemyAudio;
+    private PlayerStats playerStats;
     void Awake()
     {
         if (isBoar || isCannible)
@@ -24,6 +25,7 @@ public class HealthScript : MonoBehaviour
         }
         if (isPlayer)
         {
+            playerStats = GetComponent<PlayerStats>();
 
         }
     }
@@ -38,6 +40,7 @@ public class HealthScript : MonoBehaviour
         if (isPlayer)
         {
             // show the state(display the health UI value
+            playerStats.DisplayStaminaStats(health);
 
         }
         

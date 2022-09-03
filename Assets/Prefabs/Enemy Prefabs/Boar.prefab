@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd05538fd3355bb4fb8afd67d5acd178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 5
   radius: 1
   layerMask:
     serializedVersion: 2
