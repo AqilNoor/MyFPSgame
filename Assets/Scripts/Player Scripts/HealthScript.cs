@@ -50,7 +50,7 @@ public class HealthScript : MonoBehaviour
             if (enemyController.EnemyState == EnemyState.PATROL)
             {
                 // enemy will notic the shoot and chase the player 
-                enemyController.chaseDistance = 50f;
+                enemyController.chaseDistance = 60f;
             }
         }
 
@@ -77,6 +77,7 @@ public class HealthScript : MonoBehaviour
             // start coroutine
             StartCoroutine(DeadSound());
             // EnemyManager spawn more enemies
+            EnemyManager.instance.EnemyDied(true);
         }
 
         if (isBoar)
@@ -89,6 +90,7 @@ public class HealthScript : MonoBehaviour
             // start Coroutine
             StartCoroutine(DeadSound());
             // Spawn more enemies
+            EnemyManager.instance.EnemyDied(false);
         }
 
         if (isPlayer)
@@ -101,6 +103,7 @@ public class HealthScript : MonoBehaviour
                 //every kind of action of the enemies will be disabled
                 enemies[i].GetComponent<EnemyController>().enabled = false;
                 // call Enemy Manager to stop spawning enemies
+                EnemyManager.instance.StopSpawningEnemies();
             }
 
             GetComponent<PlayerMovement>().enabled = false;
